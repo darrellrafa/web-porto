@@ -1,0 +1,120 @@
+.categories {
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
+}
+
+.category {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.categoryLabel {
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  padding-left: 0.25rem;
+  position: relative;
+}
+
+.categoryLabel::before {
+  content: '';
+  display: inline-block;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--accent);
+  margin-right: 0.6rem;
+  vertical-align: middle;
+  opacity: 0.7;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1rem;
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.75rem;
+  padding: 1.5rem 1rem;
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  cursor: default;
+  position: relative;
+  overflow: hidden;
+  transition: transform 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
+}
+
+.card::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at 50% 80%, var(--glow, #fff) 0%, transparent 70%);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.card:hover {
+  transform: translateY(-6px);
+  border-color: color-mix(in srgb, var(--glow, var(--accent)) 60%, transparent);
+  box-shadow: 0 12px 40px -8px color-mix(in srgb, var(--glow, var(--accent)) 35%, transparent);
+}
+
+.card:hover::after {
+  opacity: 0.08;
+}
+
+.card:hover .icon {
+  transform: scale(1.1);
+}
+
+.icon {
+  width: 44px;
+  height: 44px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.25s ease;
+  position: relative;
+  z-index: 1;
+}
+
+.icon svg {
+  width: 100%;
+  height: 100%;
+}
+
+.name {
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: var(--text-muted);
+  letter-spacing: 0.02em;
+  transition: color 0.25s ease;
+  position: relative;
+  z-index: 1;
+}
+
+.card:hover .name {
+  color: var(--text);
+}
+
+@media (max-width: 900px) {
+  .grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+@media (max-width: 600px) {
+  .grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}

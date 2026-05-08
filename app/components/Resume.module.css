@@ -1,0 +1,270 @@
+.wrapper {
+  display: grid;
+  grid-template-columns: 220px 1fr;
+  gap: 2rem;
+  align-items: start;
+}
+
+/* ─── Tab Buttons ──────────────────────────── */
+.tabs {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  position: sticky;
+  top: calc(var(--nav-height) + 2rem);
+}
+
+.tab {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.85rem 1.25rem;
+  background: none;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  color: var(--text-muted);
+  font-family: 'Inter', sans-serif;
+  font-size: 0.9rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all var(--transition);
+  text-align: left;
+}
+
+.tab:hover {
+  border-color: var(--border-hover);
+  color: var(--text);
+}
+
+.tabActive {
+  background: var(--accent-dim);
+  border-color: var(--accent) !important;
+  color: var(--accent) !important;
+}
+
+/* ─── Content ──────────────────────────────── */
+.content {
+  min-height: 400px;
+}
+
+/* ─── Timeline ─────────────────────────────── */
+.timeline {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  position: relative;
+  padding-left: 1.5rem;
+}
+
+.timeline::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 12px;
+  bottom: 12px;
+  width: 1px;
+  background: linear-gradient(to bottom, var(--accent), transparent);
+}
+
+.timelineItem {
+  position: relative;
+  display: flex;
+  gap: 1.5rem;
+}
+
+.timelineDot {
+  position: absolute;
+  left: -1.5rem;
+  top: 12px;
+  width: 10px;
+  height: 10px;
+  background: var(--accent);
+  border-radius: 50%;
+  box-shadow: 0 0 10px var(--accent);
+  transform: translateX(-4px);
+  flex-shrink: 0;
+}
+
+.timelineCard {
+  flex: 1;
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 1.5rem;
+  transition: all var(--transition);
+}
+.timelineCard:hover {
+  border-color: var(--border-hover);
+}
+
+.timelineHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 1rem;
+  margin-bottom: 0.75rem;
+  flex-wrap: wrap;
+}
+
+.itemTitle {
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--text);
+  margin-bottom: 0.25rem;
+}
+
+.itemCompany {
+  font-size: 0.85rem;
+  color: var(--accent);
+  font-weight: 500;
+}
+
+.itemPeriod {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.78rem;
+  color: var(--text-muted);
+  background: var(--bg-secondary);
+  padding: 0.3rem 0.75rem;
+  border-radius: 99px;
+  border: 1px solid var(--border);
+  white-space: nowrap;
+}
+
+.itemDesc {
+  font-size: 0.9rem;
+  color: var(--text-muted);
+  line-height: 1.7;
+}
+
+/* ─── Skills ───────────────────────────────── */
+.skills {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.skillItem {}
+
+.skillMeta {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 0.6rem;
+}
+
+.skillName {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--text);
+}
+
+.skillLevel {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.82rem;
+  color: var(--accent);
+}
+
+.skillBar {
+  width: 100%;
+  height: 6px;
+  background: var(--bg-secondary);
+  border-radius: 99px;
+  overflow: hidden;
+}
+
+.skillFill {
+  height: 100%;
+  background: var(--accent);
+  border-radius: 99px;
+  transition: width 1s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* ─── About ────────────────────────────────── */
+.aboutGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+}
+
+.aboutItem {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 1rem 1.25rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  transition: border-color var(--transition);
+}
+.aboutItem:hover {
+  border-color: var(--border-hover);
+}
+
+.aboutLabel {
+  font-size: 0.75rem;
+  color: var(--text-muted);
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  font-family: 'JetBrains Mono', monospace;
+}
+
+.aboutValue {
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: var(--text);
+}
+
+.aboutLink {
+  color: var(--accent);
+  transition: opacity var(--transition);
+}
+.aboutLink:hover { opacity: 0.7; }
+
+.available {
+  color: var(--accent);
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+.available::before {
+  content: '';
+  display: inline-block;
+  width: 6px;
+  height: 6px;
+  background: var(--accent);
+  border-radius: 50%;
+  animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.4; }
+}
+
+.aboutBio {
+  grid-column: 1 / -1;
+}
+.aboutBio .aboutValue {
+  font-weight: 400;
+  color: var(--text-muted);
+  line-height: 1.7;
+}
+
+/* ─── Responsive ───────────────────────────── */
+@media (max-width: 768px) {
+  .wrapper {
+    grid-template-columns: 1fr;
+  }
+  .tabs {
+    flex-direction: row;
+    position: static;
+    overflow-x: auto;
+    padding-bottom: 0.5rem;
+  }
+  .tab {
+    flex-shrink: 0;
+  }
+  .aboutGrid {
+    grid-template-columns: 1fr;
+  }
+}

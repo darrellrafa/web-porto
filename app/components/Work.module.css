@@ -1,0 +1,309 @@
+/* ─── Filters ──────────────────────────────── */
+.filters {
+  display: flex;
+  gap: 0.75rem;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-bottom: 3rem;
+}
+
+.filter {
+  padding: 0.55rem 1.4rem;
+  border-radius: 99px;
+  border: 1px solid var(--border);
+  background: none;
+  color: var(--text-muted);
+  font-family: 'Inter', sans-serif;
+  font-size: 0.875rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all var(--transition);
+}
+.filter:hover {
+  border-color: var(--border-hover);
+  color: var(--text);
+}
+.filterActive {
+  background: var(--accent);
+  border-color: var(--accent);
+  color: var(--btn-text) !important;
+  font-weight: 700;
+}
+
+/* ─── Showcase ─────────────────────────────── */
+.showcase {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 3rem;
+  align-items: start;
+}
+
+/* ─── Info Column ──────────────────────────── */
+.info {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.projectList {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.projectBtn {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 0.9rem 1.25rem;
+  background: none;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  cursor: pointer;
+  text-align: left;
+  transition: all var(--transition);
+  width: 100%;
+}
+.projectBtn:hover {
+  border-color: var(--border-hover);
+}
+.projectBtnActive {
+  border-color: var(--accent) !important;
+  background: var(--accent-dim);
+}
+
+.projectNum {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.8rem;
+  color: var(--text-dim);
+  flex-shrink: 0;
+  transition: color var(--transition);
+}
+.projectBtnActive .projectNum {
+  color: var(--accent);
+}
+
+.projectBtnTitle {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--text-muted);
+  transition: color var(--transition);
+}
+.projectBtnActive .projectBtnTitle {
+  color: var(--text);
+}
+
+/* ─── Project Details ──────────────────────── */
+.details {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.detailsTag {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.detailsTitle {
+  font-size: 1.4rem;
+  font-weight: 800;
+  color: var(--text);
+}
+
+.detailsDesc {
+  font-size: 0.92rem;
+  color: var(--text-muted);
+  line-height: 1.7;
+}
+
+.techStack {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.techBadge {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.75rem;
+  padding: 0.3rem 0.8rem;
+  background: var(--bg-secondary);
+  border: 1px solid var(--border);
+  border-radius: 99px;
+  color: var(--text-muted);
+}
+
+.links {
+  display: flex;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+  margin-top: 0.5rem;
+}
+
+.linkBtn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.6rem 1.25rem;
+  border-radius: 99px;
+  font-size: 0.875rem;
+  font-weight: 600;
+  font-family: 'Inter', sans-serif;
+  border: 1px solid var(--border);
+  color: var(--text-muted);
+  transition: all var(--transition);
+  cursor: pointer;
+  text-decoration: none;
+}
+.linkBtn:hover {
+  border-color: var(--border-hover);
+  color: var(--accent);
+}
+
+.linkBtnPrimary {
+  background: var(--accent);
+  border-color: var(--accent);
+  color: var(--btn-text) !important;
+}
+.linkBtnPrimary:hover {
+  background: var(--accent-hover);
+  border-color: var(--accent-hover);
+  box-shadow: 0 6px 18px rgba(0,0,0,0.18);
+}
+
+/* ─── Image Area ───────────────────────────── */
+.imageArea {
+  position: sticky;
+  top: calc(var(--nav-height) + 2rem);
+}
+
+.imagePlaceholder {
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  background: var(--bg-secondary);
+  position: relative;
+  transition: border-color var(--transition);
+}
+
+/* ─── Mock Browser ─────────────────────────── */
+.mockBrowser {
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.mockBar {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.75rem 1rem;
+  background: var(--bg-card);
+  border-bottom: 1px solid var(--border);
+}
+
+.mockDot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  display: inline-block;
+  flex-shrink: 0;
+}
+
+.mockUrl {
+  flex: 1;
+  background: var(--bg);
+  border-radius: 6px;
+  padding: 0.25rem 0.75rem;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.7rem;
+  color: var(--text-dim);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.projectImageContainer {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  background: var(--bg-secondary);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+}
+
+.projectImage {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: opacity var(--transition);
+}
+
+/* ─── Image Controls ───────────────────────── */
+.imgControls {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  padding: 1rem;
+  border-top: 1px solid var(--border);
+}
+
+.imgArrow {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  border: 1px solid var(--border);
+  background: none;
+  color: var(--text-muted);
+  cursor: pointer;
+  transition: all var(--transition);
+}
+.imgArrow:hover {
+  border-color: var(--accent);
+  color: var(--accent);
+}
+
+.imgDots {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.imgDot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  border: none;
+  background: var(--border);
+  cursor: pointer;
+  transition: all var(--transition);
+}
+.imgDotActive {
+  width: 20px;
+  border-radius: 4px;
+}
+
+/* ─── Responsive ───────────────────────────── */
+@media (max-width: 900px) {
+  .showcase {
+    grid-template-columns: 1fr;
+  }
+  .imageArea {
+    position: static;
+    order: -1;
+  }
+  .mockCards {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
