@@ -18,7 +18,7 @@ const socials = [
   { icon: GitHubIcon, href: "https://github.com/darrellrafa", label: "GitHub" },
   { icon: LinkedInIcon, href: "https://www.linkedin.com/in/darrellrafa/", label: "LinkedIn" },
   { icon: TikTokIcon, href: "https://www.tiktok.com/@darrell.mov", label: "TikTok" },
-  { icon: InstagramIcon, href: "https://instagram.com", label: "Instagram" },
+  { icon: InstagramIcon, href: "https://www.instagram.com/darrell.mp4/", label: "Instagram" },
 ];
 
 export default function Hero() {
