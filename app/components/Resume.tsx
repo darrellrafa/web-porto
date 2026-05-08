@@ -68,7 +68,6 @@ const aboutInfo = [
   { label: "Name", value: "Darrell Rafa Alamsyah" },
   { label: "Nationality", value: "Indonesian" },
   { label: "Email", value: "darrell2645@gmail.com" },
-  { label: "Phone", value: "+62 817-7546-7709" },
   { label: "Location", value: "Jakarta, Indonesia" },
   { label: "Languages", value: "English, Indonesian" },
 ];

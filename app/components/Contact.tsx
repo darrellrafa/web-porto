@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, FormEvent } from "react";
-import { Mail, Phone, MapPin, Send, CheckCircle, AlertCircle } from "lucide-react";
+import { Mail, MapPin, Send, CheckCircle, AlertCircle } from "lucide-react";
 import styles from "./Contact.module.css";
 
 const contactInfo = [
@@ -10,12 +10,6 @@ const contactInfo = [
     label: "Email",
     value: "darrell2645@gmail.com",
     href: "mailto:darrell2645@gmail.com",
-  },
-  {
-    icon: Phone,
-    label: "Phone",
-    value: "+62 817-7546-7709",
-    href: "tel:+6281775467709",
   },
   {
     icon: MapPin,
