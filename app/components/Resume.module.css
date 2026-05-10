@@ -253,7 +253,7 @@
 /* ─── Responsive ───────────────────────────── */
 @media (max-width: 768px) {
   .wrapper {
-    grid-template-columns: 1fr;
+    grid-template-columns: minmax(0, 1fr);
   }
   .tabs {
     flex-direction: row;
@@ -265,6 +265,6 @@
     flex-shrink: 0;
   }
   .aboutGrid {
-    grid-template-columns: 1fr;
+    grid-template-columns: minmax(0, 1fr);
   }
 }

@@ -228,6 +228,7 @@
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
+  min-width: 0;
 }
 
 .projectImageContainer {
@@ -297,13 +298,13 @@
 /* ─── Responsive ───────────────────────────── */
 @media (max-width: 900px) {
   .showcase {
-    grid-template-columns: 1fr;
+    grid-template-columns: minmax(0, 1fr);
   }
   .imageArea {
     position: static;
     order: -1;
   }
   .mockCards {
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 }

@@ -188,6 +188,7 @@
   .links { display: none; }
   .actions { display: none; }
   .hamburger { display: flex; }
+  .inner { padding: 0 1.25rem; }
 }
 
 /* ─── Theme Toggle ───────────────────────────────────────────── */

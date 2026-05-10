@@ -78,7 +78,7 @@ export default function Footer() {
       <div className={styles.bottom}>
         <div className="container">
           <p className={styles.copy}>
-            © {year} Darrell Rafa Alamsyah. Crafted with{" "}
+            © {year} Darrell Rafa Alamsyah. Built with{" "}
             <span className={styles.heart}>♥</span> using Next.js
           </p>
         </div>

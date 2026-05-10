@@ -63,6 +63,8 @@
 html {
   scroll-behavior: smooth;
   scroll-padding-top: var(--nav-height);
+  overflow-x: hidden;
+  max-width: 100%;
 }
 
 body {
@@ -72,6 +74,7 @@ body {
   font-size: 16px;
   line-height: 1.6;
   overflow-x: hidden;
+  max-width: 100%;
   -webkit-font-smoothing: antialiased;
 }
 
@@ -235,4 +238,5 @@ img {
 /* ─── Responsive ─────────────────────────────────────────────── */
 @media (max-width: 768px) {
   .section { padding: 4rem 0; }
+  .container { padding: 0 1.25rem; }
 }
