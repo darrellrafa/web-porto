@@ -32,7 +32,7 @@ const projects = [
     categories: ["Mobile"],
     desc: "A platform to find martial arts sparring partners. Built mobile application with Flutter and connected database using Appwrite.",
     tech: ["Flutter", "Appwrite", "Mobile"],
-    github: "https://github.com",
+    github: "https://github.com/darrellrafa/might",
     live: "http://meetandfight.vercel.app/",
     color: "#6366f1",
     images: ["/projects/meet1.png", "/projects/meet2.png"],
