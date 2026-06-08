@@ -50,7 +50,7 @@ const projects = [
   {
     title: "Roadmap-AI",
     categories: ["Web App", "AI/ML"],
-    desc: "A platform to find martial arts sparring partners. Built mobile application with Flutter and connected database using Appwrite.",
+    desc: "An AI-powered learning path generator that helps users create personalized study roadmaps. Built with a Next.js frontend and a Python backend utilizing SQLite, it leverages artificial intelligence to customize career paths, milestones, and learning resources.",
     tech: ["Next.js", "Python", "Web App", "Sqlite"],
     github: "https://github.com/darrellrafa/Roadmap-ai",
     // live: "http://meetandfight.vercel.app/",
