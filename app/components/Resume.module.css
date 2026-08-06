@@ -136,6 +136,21 @@
   line-height: 1.7;
 }
 
+.itemList {
+  margin-top: 0.75rem;
+  padding-left: 1.25rem;
+  list-style-type: disc;
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+
+.itemListItem {
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  line-height: 1.6;
+}
+
 /* ─── Skills ───────────────────────────────── */
 .skills {
   display: flex;

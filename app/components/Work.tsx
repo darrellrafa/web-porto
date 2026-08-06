@@ -4,7 +4,7 @@ import { useState } from "react";
 import { Code2, ExternalLink, ChevronLeft, ChevronRight } from "lucide-react";
 import styles from "./Work.module.css";
 
-const categories = ["All", "Web App", "AI/ML", "Mobile"];
+const categories = ["All", "Web App", "AI/ML", "Mobile", "Game and 3D"];
 
 const projects = [
   {
@@ -107,6 +107,65 @@ const projects = [
     color: "#be47c9",
     images: ["/projects/ada-property-1.png", "/projects/ada-property-2.png", "/projects/ada-property-3.png"]
   },
+  {
+    title: "Industrial Escape: The Abandoned Factory",
+    categories: ["Game and 3D"],
+    desc: ["Trapped at night in an abandoned industrial factory controlled by a hostile presence, players must scavenge for components to manually repair the security system and unlock the main gate to escape. Features a fully playable 3D level implementing the 'Collect → Activate → Unlock' gameplay loop, utilizing Server/Client-side Lua scripts and a minimum of 10 custom 3D assets created in Blender."],
+    tech: ["Roblox", "Blender", "C#"],
+    live: "https://www.roblox.com/id/games/101945798277987/Final-Project#!/about",
+    color: "#045535",
+    images: [
+      "/projects/roblox-1.png",
+      "/projects/roblox-2.png",
+      "/projects/roblox-3.png",
+      "/projects/roblox-4.jpeg",
+      "/projects/roblox-5.png",
+      "/projects/roblox-6.png",
+      "/projects/roblox-7.png",
+      "/projects/roblox-8.png",
+      "/projects/roblox-9.png",
+      "/projects/roblox-10.png",
+      "/projects/roblox-11.png",
+      "/projects/roblox-12.png",
+      "/projects/roblox-13.png",
+      "/projects/roblox-14.png",
+    ]
+  },
+  {
+    title: "Camera AI – Dynamic Software",
+    categories: ["Web App", "AI/ML"],
+    desc: `This project was made during my bootcamp journey in collaboration with Astra Otoparts WINTEQ called VeriVision.
+
+In modern smart manufacturing of Industry 4.0, traditional Automated Visual Inspection systems often suffer from a major bottleneck due to hardcoded configurations that require tedious source code updates for every new product line or customer change.
+
+To solve this challenge, our team built VeriVision as a configuration driven, on premise AI visual inspection platform designed to transition deployment times from weeks to mere minutes.
+
+Key Highlights and Architecture:
+
+ - Configuration Driven Engine treats inspection logic as data through JSON templates enabling zero code setup for new inspection workflows via a clean web interface.
+
+ - End to End AI Training Pipeline is powered by Ultralytics YOLOv8 for object detection and classification alongside MobileSAM for automated polygon annotation in our built in AI Studio allowing engineers to train and deploy models straight from the browser.
+
+ - VeriAssist Chatbot acts as a hybrid heuristic and local LLM assistant using Ollama and Llama to provide natural language access to production history and insights.
+
+ - Smart Alert Engine and Integrations handle proactive anomaly detection like burst defects and model drift with real time Webhook and MQTT event dispatches for PLC integration.
+`,
+    tech: ["Next.js", "Python", "Web App", "Sqlite", "React", "FastAPI", "SQLAlchemy", "Ultralytics YOLOv8", "MobileSAM", "Ollama"],
+    github: "https://github.com/darrellrafa/Camera-AI-VeriVision",
+    color: "#ec4899",
+    images: [
+      "/projects/camera-ai-1.jpg",
+      "/projects/camera-ai-2.jpg",
+      "/projects/camera-ai-3.jpg",
+      "/projects/camera-ai-4.jpg",
+      "/projects/camera-ai-5.jpg",
+      "/projects/camera-ai-6.jpg",
+      "/projects/camera-ai-7.jpg",
+      "/projects/camera-ai-8.jpg",
+      "/projects/camera-ai-9.jpg",
+      "/projects/camera-ai-10.jpg",
+    ],
+  },
 
 ];
 
@@ -129,7 +188,7 @@ export default function Work() {
   };
 
   const handleProject = (idx: number) => {
-    setActiveProject(idx);
+    setActiveProject((prev) => (prev === idx ? -1 : idx));
     setImgIndex(0);
   };
 
@@ -157,126 +216,137 @@ export default function Work() {
           ))}
         </div>
 
-        {filtered.length > 0 && project && (
-          <div className={styles.showcase}>
-            {/* Left: Info */}
-            <div className={styles.info}>
-              {/* Project list */}
-              <div className={styles.projectList}>
-                {filtered.map((p, i) => (
+        {filtered.length > 0 && (
+          <div className={styles.projectList}>
+            {filtered.map((p, i) => {
+              const isActive = activeProject === i;
+              const isRendered = isActive && project;
+              
+              return (
+                <div key={p.title} className={styles.projectItemWrapper}>
                   <button
-                    key={p.title}
-                    className={`${styles.projectBtn} ${activeProject === i ? styles.projectBtnActive : ""}`}
+                    className={`${styles.projectBtn} ${isActive ? styles.projectBtnActive : ""}`}
                     onClick={() => handleProject(i)}
                   >
                     <span className={styles.projectNum}>0{i + 1}</span>
                     <span className={styles.projectBtnTitle}>{p.title}</span>
                   </button>
-                ))}
-              </div>
 
-              {/* Active Project Details */}
-              <div className={styles.details}>
-                <div className={styles.detailsTag} style={{ color: project.color }}>
-                  {project.categories.join(", ")}
-                </div>
-                <h3 className={styles.detailsTitle}>{project.title}</h3>
-                <p className={styles.detailsDesc}>{project.desc}</p>
-
-                <div className={styles.techStack}>
-                  {project.tech.map((t) => (
-                    <span key={t} className={styles.techBadge}>{t}</span>
-                  ))}
-                </div>
-
-                <div className={styles.links}>
-                  <a
-                    href={project.github}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className={styles.linkBtn}
-                  >
-                    <Code2 size={16} />
-                    GitHub
-                  </a>
-                  <a
-                    href={project.live}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className={`${styles.linkBtn} ${styles.linkBtnPrimary}`}
-                  >
-                    <ExternalLink size={16} />
-                    Live Demo
-                  </a>
-                </div>
-              </div>
-            </div>
-
-            {/* Right: Image Showcase */}
-            <div className={styles.imageArea}>
-              <div
-                className={styles.imagePlaceholder}
-                style={{ borderColor: project.color + "40" }}
-              >
-                {/* Decorative project preview */}
-                <div className={styles.mockBrowser}>
-                  <div className={styles.mockBar}>
-                    <span className={styles.mockDot} style={{ background: "#ff5f57" }} />
-                    <span className={styles.mockDot} style={{ background: "#ffbd2e" }} />
-                    <span className={styles.mockDot} style={{ background: "#28c840" }} />
-                    <div className={styles.mockUrl}>
-                      <span>{project.live}</span>
+                  {isRendered && (
+                    <div className={styles.showcase} style={{ marginTop: '1.5rem', marginBottom: '2rem' }}>
+                      {/* Left: Info */}
+                      <div className={styles.info}>
+                        {/* Active Project Details */}
+                        <div className={styles.details}>
+                          <div className={styles.detailsTag} style={{ color: project.color }}>
+                            {project.categories.join(", ")}
+                          </div>
+                          <h3 className={styles.detailsTitle}>{project.title}</h3>
+                          <p className={styles.detailsDesc}>{project.desc}</p>
+          
+                          <div className={styles.techStack}>
+                            {project.tech.map((t) => (
+                              <span key={t} className={styles.techBadge}>{t}</span>
+                            ))}
+                          </div>
+          
+                          <div className={styles.links}>
+                            {project.github && (
+                              <a
+                                href={project.github}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className={styles.linkBtn}
+                              >
+                                <Code2 size={16} />
+                                GitHub
+                              </a>
+                            )}
+                            {project.live && (
+                              <a
+                                href={project.live}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className={`${styles.linkBtn} ${styles.linkBtnPrimary}`}
+                              >
+                                <ExternalLink size={16} />
+                                Live Demo
+                              </a>
+                            )}
+                          </div>
+                        </div>
+                      </div>
+          
+                      {/* Right: Image Showcase */}
+                      <div className={styles.imageArea}>
+                        <div
+                          className={styles.imagePlaceholder}
+                          style={{ borderColor: project.color + "40" }}
+                        >
+                          {/* Decorative project preview */}
+                          <div className={styles.mockBrowser}>
+                            <div className={styles.mockBar}>
+                              <span className={styles.mockDot} style={{ background: "#ff5f57" }} />
+                              <span className={styles.mockDot} style={{ background: "#ffbd2e" }} />
+                              <span className={styles.mockDot} style={{ background: "#28c840" }} />
+                              <div className={styles.mockUrl}>
+                                <span>{project.live || project.github || "localhost:3000"}</span>
+                              </div>
+                            </div>
+                            <div className={styles.projectImageContainer}>
+                              {project.images[imgIndex].endsWith(".mp4") || project.images[imgIndex].endsWith(".webm") ? (
+                                <video
+                                  src={project.images[imgIndex]}
+                                  className={styles.projectImage}
+                                  autoPlay
+                                  loop
+                                  muted
+                                  playsInline
+                                />
+                              ) : (
+                                <img
+                                  src={project.images[imgIndex]}
+                                  alt={`${project.title} preview`}
+                                  className={styles.projectImage}
+                                />
+                              )}
+                            </div>
+                          </div>
+          
+                          {/* Image nav controls */}
+                          <div className={styles.imgControls}>
+                            <button
+                              className={styles.imgArrow}
+                              onClick={() => setImgIndex((prev) => (prev === 0 ? project.images.length - 1 : prev - 1))}
+                              aria-label="Previous image"
+                            >
+                              <ChevronLeft size={18} />
+                            </button>
+                            <div className={styles.imgDots}>
+                              {project.images.map((_, idx) => (
+                                <button
+                                  key={idx}
+                                  className={`${styles.imgDot} ${imgIndex === idx ? styles.imgDotActive : ""}`}
+                                  onClick={() => setImgIndex(idx)}
+                                  style={{ background: imgIndex === idx ? project.color : undefined }}
+                                />
+                              ))}
+                            </div>
+                            <button
+                              className={styles.imgArrow}
+                              onClick={() => setImgIndex((prev) => (prev === project.images.length - 1 ? 0 : prev + 1))}
+                              aria-label="Next image"
+                            >
+                              <ChevronRight size={18} />
+                            </button>
+                          </div>
+                        </div>
+                      </div>
                     </div>
-                  </div>
-                  <div className={styles.projectImageContainer}>
-                    {project.images[imgIndex].endsWith(".mp4") || project.images[imgIndex].endsWith(".webm") ? (
-                      <video
-                        src={project.images[imgIndex]}
-                        className={styles.projectImage}
-                        autoPlay
-                        loop
-                        muted
-                        playsInline
-                      />
-                    ) : (
-                      <img
-                        src={project.images[imgIndex]}
-                        alt={`${project.title} preview`}
-                        className={styles.projectImage}
-                      />
-                    )}
-                  </div>
+                  )}
                 </div>
-
-                {/* Image nav controls */}
-                <div className={styles.imgControls}>
-                  <button
-                    className={styles.imgArrow}
-                    onClick={() => setImgIndex((prev) => (prev === 0 ? project.images.length - 1 : prev - 1))}
-                    aria-label="Previous image"
-                  >
-                    <ChevronLeft size={18} />
-                  </button>
-                  <div className={styles.imgDots}>
-                    {project.images.map((_, i) => (
-                      <button
-                        key={i}
-                        className={`${styles.imgDot} ${imgIndex === i ? styles.imgDotActive : ""}`}
-                        onClick={() => setImgIndex(i)}
-                        style={{ background: imgIndex === i ? project.color : undefined }}
-                      />
-                    ))}
-                  </div>
-                  <button
-                    className={styles.imgArrow}
-                    onClick={() => setImgIndex((prev) => (prev === project.images.length - 1 ? 0 : prev + 1))}
-                    aria-label="Next image"
-                  >
-                    <ChevronRight size={18} />
-                  </button>
-                </div>
-              </div>
-            </div>
+              );
+            })}
           </div>
         )}
       </div>

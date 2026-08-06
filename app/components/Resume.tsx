@@ -13,9 +13,23 @@ const tabs = [
 
 const experience = [
   {
+    title: "AI Software Engineer Intern",
+    company: "InfraLoka",
+    period: "05/2026 — Presents",
+    desc: "Build an AI-powered medical assistant to help healthcare personnel work more efficiently.",
+    list: [
+      "Designed and implemented a full‑stack Next.js 14 (App Router) application in TypeScript providing an AI medical assistant.",
+      "Integrated OpenRouter API (moonshotai/kimi-k2.5) to deliver evidence‑based medical consultation and interpret clinical data.",
+      "Implemented optional authentication with NextAuth.js (Google OAuth) plus a guest mode for instant access and session management.",
+      "Built a server-side chat API to securely proxy requests to the AI backend while protecting API keys and secrets.",
+      "Created a responsive UI with Tailwind CSS and Heroicons, delivering a real‑time chat experience and accessibility minded layouts.",
+      "Authored project documentation and secure deployment guidance (env vars, NEXTAUTH_SECRET generation, security notes)",
+    ],
+  },
+  {
     title: "Artificial Intelligence / Machine Learning Engineer Intern",
-    company: "Syntecxhub",
-    period: "05/2026 — Present",
+    company: "CodeAlpha",
+    period: "04/2026 — 05/2026",
     desc: "Working on AI Agent, building intelligent automation tools to streamline workflows and enhance user interactions.",
   },
   {
@@ -26,9 +40,9 @@ const experience = [
   },
   {
     title: "Web Developer Intern",
-    company: "Ministry of Communication and Digital INDONESIA",
+    company: "Ministry of Communication and Digital INDONESIA (DISKOMINFO Kab. Bekasi)",
     period: "11/2025 — 03/2026",
-    desc: "Build a website portal for jobseeker. East Java, Indonesia.",
+    desc: "Developed a Digital Selection & Training Management System for Disnaker using React (Vite), Tailwind CSS, and Express.js. Engineered app routing, structural backend architectures following MVC principles for job management, and admin dashboards with SVG data visualizations to transform static prototypes into a functional, scalable full-stack application for public services.",
   },
   {
     title: "IT Support Technician",
@@ -118,6 +132,15 @@ export default function Resume() {
                         <span className={styles.itemPeriod}>{item.period}</span>
                       </div>
                       <p className={styles.itemDesc}>{item.desc}</p>
+                      {item.list && (
+                        <ul className={styles.itemList}>
+                          {item.list.map((listItem, index) => (
+                            <li key={index} className={styles.itemListItem}>
+                              {listItem}
+                            </li>
+                          ))}
+                        </ul>
+                      )}
                     </div>
                   </div>
                 ))}
